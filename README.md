@@ -6,7 +6,7 @@ Las reglas se encuentran en el directorio:
 Para mas informacion ver:
 -------------------------
 *Documentacion Security Onion
-  *https://securityonion.readthedocs.io/en/latest/elastalert.html
+ *https://securityonion.readthedocs.io/en/latest/elastalert.html
 *Documentacion elastalert
-  *https://elastalert.readthedocs.io/en/latest/
+ *https://elastalert.readthedocs.io/en/latest/
 
