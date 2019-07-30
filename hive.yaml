@@ -14,20 +14,31 @@ timeframe:
 realert:
     minutes: 0
 
+#GET /_search:
+#{
+#  "query": { 
+#    "bool": { 
+#      "filter": [ 
+#        { "term":  { "priority": "1" }} 
+#      ]
+#    }
+#  }
+#}
+
 filter:
-#- query_string:
-#    query:  'priority:"1" AND NOT (category:"info" OR category:"policy" OR category:"chat")'
+- query_string:
+    query: 'priority:"1" AND NOT (category:"info" OR category:"policy" OR category:"chat")'
 
 #- query_string:
 #    query: 'category:"scan"'
 
-- query_string:
-    query:  'priority:"1"'
+# - query_string:
+#   query:  'priority:"1"'
 
 #- query_string:
 #    query:  'event_type:"snort"'
 
-# priority:"1"
+ # priority:"1"
 
 alert: hivealerter
 
