@@ -14,6 +14,7 @@ timeframe:
 realert:
     minutes: 0
 
+
 #GET /_search:
 #{
 #  "query": { 
@@ -29,8 +30,11 @@ filter:
 - query_string:
     query: 'priority:"1" AND NOT (category:"info" OR category:"policy" OR category:"chat")'
 
+
+
 #- query_string:
 #    query: 'category:"scan"'
+
 
 # - query_string:
 #   query:  'priority:"1"'
