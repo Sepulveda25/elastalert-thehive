@@ -1,48 +1,22 @@
-# hive.yaml
-# Elastalert rule to forward IDS alerts from Security Onion to a specified TheHive instance.
-#
+
 es_host: elasticsearch
 es_port: 9200
-index: "*:logstash-ids*"
-name: New IDS Alert!
+# (Required)
+# Rule name, must be unique
+index: "*:logstash-ids-*"
+name: Alerta de Aplicaciones Web Hive
 
-#type: any
 type: frequency
-num_events: 1
+num_events: 10
 timeframe:
     minutes: 10
-realert:
+realalert:
     minutes: 0
 
 
-#GET /_search:
-#{
-#  "query": { 
-#    "bool": { 
-#      "filter": [ 
-#        { "term":  { "priority": "1" }} 
-#      ]
-#    }
-#  }
-#}
-
 filter:
 - query_string:
-    query: 'priority:"1" AND NOT (category:"info" OR category:"policy" OR category:"chat")'
-
-
-
-#- query_string:
-#    query: 'category:"scan"'
-
-
-# - query_string:
-#   query:  'priority:"1"'
-
-#- query_string:
-#    query:  'event_type:"snort"'
-
- # priority:"1"
+    query: 'classification:"Web Application Attack"'
 
 alert: hivealerter
 
@@ -71,7 +45,12 @@ hive_observable_data_mapping:
   - destination_ip: '{match[destination_ip]}'
   - source_port: '{match[source_port]}'
   - destination_port: '{match[destination_port]}'
-  - interface: '{match[interface]}' 
+  - interface: '{match[interface]}'
   - timestamp: '{match[@timestamp]}'
-  - event_type: '{match[event_type]}'
+  - alert: '{match[alert]}'
+
+
+
+
+
 
