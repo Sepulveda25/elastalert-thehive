@@ -4,19 +4,19 @@ es_port: 9200
 # (Required)
 # Rule name, must be unique
 index: "*:logstash-ids-*"
-name: Alerta de Aplicaciones Web Hive
+name: Alerta de NMAP Hive
 
 type: frequency
-num_events: 10
+num_events: 3
 timeframe:
-    minutes: 10
+    minutes: 3
 realalert:
     minutes: 0
 
 
 filter:
 - query_string:
-    query: 'classification:"Web Application Attack"'
+    query: 'classification: Web Application Attack AND category: scan'
 
 alert: hivealerter
 
@@ -47,7 +47,11 @@ hive_observable_data_mapping:
   - destination_port: '{match[destination_port]}'
   - interface: '{match[interface]}'
   - timestamp: '{match[@timestamp]}'
+  - classification: '{match[classification]}'
   - alert: '{match[alert]}'
+  - category: '{match[category]}'
+
+  
 
 
 

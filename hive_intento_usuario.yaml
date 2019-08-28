@@ -47,6 +47,7 @@ hive_observable_data_mapping:
   - destination_port: '{match[destination_port]}'
   - interface: '{match[interface]}'
   - timestamp: '{match[@timestamp]}'
-
-
+  - classification: '{match[classification]}'
+  - alert: '{match[alert]}'
+  - category: '{match[category]}'
 

@@ -12,6 +12,23 @@ filter:
 - query_string:
     query: 'priority:"1"'
 
+realert:
+  minutes: 0
+
 alert:
   - command
-command: ["echo funciona >> /home/sonion/output.txt"]
+#command: ["echo", "ls", ">", "/opt/elastalert/host_executor_queue"]
+#command: ["touch", "/opt/elastalert/algo.txt"]
+command: ["/opt/elastalert/pasar_args.sh" , "{@timestamp} {source_ip} {destination_ip} {source_port} {destination_port}"]
+
+#time,sip,dsip,sport,despor
+
+#  - source_ip: '{match[source_ip]}'
+#  - destination_ip: '{match[destination_ip]}'
+#  - source_port: '{match[source_port]}'
+#  - destination_port: '{match[destination_port]}'
+#  - interface: '{match[interface]}'
+#  - timestamp: '{match[@timestamp]}'
+#  - classification: '{match[classification]}'
+#  - alert: '{match[alert]}'
+#  - category: '{match[category]}'
