@@ -16,7 +16,7 @@ realalert:
 
 filter:
 - query_string:
-    query: '"classification: Web Application Attack" NOT "category: scan"'
+    query: '("classification: Web Application Attack") -"category: scan"'
 
 alert: hivealerter
 
