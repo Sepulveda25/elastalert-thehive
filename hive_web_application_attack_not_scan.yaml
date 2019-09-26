@@ -1,10 +1,9 @@
-
 es_host: elasticsearch
 es_port: 9200
 # (Required)
 # Rule name, must be unique
 index: "*:logstash-ids-*"
-name: Alerta de Actividad Web Hive
+name: Web Application Attack not scan
 
 type: frequency
 num_events: 3
