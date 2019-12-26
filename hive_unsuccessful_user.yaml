@@ -15,7 +15,7 @@ realalert:
 
 filter:
 - query_string:
-    query: 'classification:"Unsuccessful User"'
+    query: 'classification:"Unsuccessful User" AND interface: "sonion-forward-eco-ens192"'
 
 alert: hivealerter
 
