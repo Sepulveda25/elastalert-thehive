@@ -15,7 +15,7 @@ realalert:
 
 filter:
 - query_string:
-    query: 'classification:"Targeted Activity"'
+    query: 'classification:"Targeted Activity" AND interface: "sonion-forward-eco-ens192"'
 
 alert: hivealerter
 
