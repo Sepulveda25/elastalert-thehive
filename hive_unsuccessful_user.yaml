@@ -3,7 +3,8 @@ es_port: 9200
 # (Required)
 # Rule name, must be unique
 index: "*:logstash-ids-*"
-name: The Hive Unsuccessful User
+name: hive_unsuccessful_user
+
 
 type: frequency
 num_events: 1

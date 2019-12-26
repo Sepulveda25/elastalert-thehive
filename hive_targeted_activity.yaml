@@ -3,7 +3,7 @@ es_port: 9200
 # (Required)
 # Rule name, must be unique
 index: "*:logstash-ids-*"
-name: The hive Targeted activity
+name: hive_targeted_activity
 
 type: frequency
 num_events: 1
