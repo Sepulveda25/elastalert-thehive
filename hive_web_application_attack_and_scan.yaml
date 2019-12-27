@@ -15,7 +15,7 @@ realalert:
 
 filter:
 - query_string:
-    query: 'classification: Web Application Attack AND category: scan AND syslog-host: "sonion-forward-eco-ens192"'
+    query: '(("classification: Web Application Attack") AND "category: scan") AND syslog-host: "sonion-forward-eco-ens192"'
 
 alert: hivealerter
 
