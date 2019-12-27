@@ -15,12 +15,12 @@ realalert:
 
 filter:
 - query_string:
-    query: '(("classification: Web Application Attack") -"category: scan") AND interface: "sonion-forward-eco-ens192"'
+    query: '(("classification: Web Application Attack") -"category: scan") AND syslog-host: "sonion-forward-eco-ens192"'
 
 alert: hivealerter
 
 hive_connection:
-  hive_host: http://172.16.81.110
+  hive_host: http://172.16.81.110:9000
   hive_port: 9000
   hive_apikey: xLuixewzDP6zXcVgLvyaFUoeUZcZgKu3
 
