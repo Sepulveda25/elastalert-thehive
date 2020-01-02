@@ -17,3 +17,13 @@ Documentacion Security Onion
 - https://elastalert.readthedocs.io/en/latest/
 
 
+## Clasificaciones filtradas por las reglas
+
+- web-application-attack
+- Unsuccessful User
+- Targeted Activity
+- attempted-dos
+- Known client side exploit attempt
+- Exploit Kit Activity Detected
+- A suspicious filename was detected
+- Network Trojan

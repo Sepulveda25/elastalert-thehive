@@ -3,7 +3,7 @@ es_port: 9200
 # (Required)
 # Rule name, must be unique
 index: "*:logstash-ids-*"
-name: hive_unsuccessful_user
+name: Unsuccessful User
 
 
 type: frequency
@@ -16,7 +16,9 @@ realalert:
 
 filter:
 - query_string:
-    query: 'classification:"Unsuccessful User" AND syslog-host: "sonion-forward-eco-ens192"'
+    query: "classification: Unsuccessful User"
+- query_string:
+    query: "syslog-host: sonion-forward-eco-ens192"
 
 alert: hivealerter
 
@@ -50,4 +52,3 @@ hive_observable_data_mapping:
   - classification: '{match[classification]}'
   - alert: '{match[alert]}'
   - category: '{match[category]}'
-

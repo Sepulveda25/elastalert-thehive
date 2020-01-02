@@ -3,7 +3,7 @@ es_port: 9200
 # (Required)
 # Rule name, must be unique
 index: "*:logstash-ids-*"
-name: hive_web_application_attack_not_scan
+name: Web Application Attack Not Scan
 
 type: frequency
 num_events: 3

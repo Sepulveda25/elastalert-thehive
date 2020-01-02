@@ -1,23 +1,31 @@
 es_host: elasticsearch
 es_port: 9200
-
 # (Required)
 # Rule name, must be unique
 index: "*:logstash-ids-*"
-name: The Hive para ECO
+name: A suspicious filename was detected
 
-type: any
+type: frequency
+num_events: 3
+timeframe:
+    minutes: 3
+realalert:
+    minutes: 0
+
 
 filter:
 - query_string:
-    query: 'priority: "1" AND interface: "sonion-forward-eco-ens192"'
+    query: "classification: A suspicious filename was detected"
+- query_string:
+    query: "syslog-host: csirt-sonion-forward-data-center"
+
 
 alert: hivealerter
 
 hive_connection:
-  hive_host: http://172.16.81.115
+  hive_host: http://172.16.81.110:9000
   hive_port: 9000
-  hive_apikey: 4bwfXyKyyFL7Nq7YacMCpTBPrXyJnGI4 #API key 
+  hive_apikey: xLuixewzDP6zXcVgLvyaFUoeUZcZgKu3
 
 hive_proxies:
   http: ''

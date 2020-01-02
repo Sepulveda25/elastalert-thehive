@@ -3,20 +3,21 @@ es_port: 9200
 # (Required)
 # Rule name, must be unique
 index: "*:logstash-ids-*"
-name: hive_alert_exploit_netgear
+name: Network Trojan
 
 type: frequency
-num_events: 1
+num_events: 3
 timeframe:
-    minutes: 10
+    minutes: 3
 realalert:
     minutes: 0
 
 
 filter:
 - query_string:
-    query: 'alert:"ET EXPLOIT Netgear DGN Remote Command Execution" AND syslog-host: "sonion-forward-eco-ens192"'
-
+    query: "classification: Network Trojan"
+- query_string:
+    query: "syslog-host: sonion-forward-eco-ens192"
 
 alert: hivealerter
 
@@ -50,4 +51,3 @@ hive_observable_data_mapping:
   - classification: '{match[classification]}'
   - alert: '{match[alert]}'
   - category: '{match[category]}'
-
